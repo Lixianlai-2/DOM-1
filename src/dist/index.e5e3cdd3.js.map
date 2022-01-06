@@ -1,0 +1,1 @@
+{"mappings":"AAAA,MAAM,CAAC,GAAG,GAAG,CAAC;IACZ,MAAM,IAAG,CAAC;IAAA,CAAC;AACb,CAAC","sources":["dom.js"],"sourcesContent":["window.dom = {\r\n  create() {},\r\n};\r\n"],"names":[],"version":3,"file":"index.e5e3cdd3.js.map","sourceRoot":"/__parcel_source_root/"}
