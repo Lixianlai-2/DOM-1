@@ -1,11 +1,20 @@
-let div1 = dom.createHTML("<div><p>div1</p></div>");
-let div2 = dom.createHTML("<td>div2</td>");
-let div3 = dom.createHTML("<div>div3</div>");
-let div4 = dom.create("div");
-let p = dom.createHTML("<p>这是p的内容</p>");
-let childDiv = document.querySelector(".childDiv");
+// 找到第一个.red
+const div = dom.find("#test>.red")[0]; // 获取对应的元素
 
-let body = document.querySelector("body");
+dom.style(div, "color", "red"); // 设置 div.style.color
+
+const divList = dom.find(".red"); // 获取多个 div.red 元素
+
+dom.each(divList, (n) => console.log(n)); // 遍历 divList 里的所有元素
+
+// let div1 = dom.createHTML("<div><p>div1</p></div>");
+// let div2 = dom.createHTML("<td>div2</td>");
+// let div3 = dom.createHTML("<div>div3</div>");
+// let div4 = dom.create("div");
+// let p = dom.createHTML("<p>这是p的内容</p>");
+// let childDiv = document.querySelector(".childDiv");
+
+// let body = document.querySelector("body");
 
 // div1.classList.add("block");
 // div2.classList.add("block");
@@ -43,30 +52,46 @@ let body = document.querySelector("body");
 
 // console.log(empty.firstChild);
 
-let empty = document.querySelector("#empty");
+// let empty = document.querySelector("#empty");
 
-// dom.text(empty, "给它添加文本内容");
+// // dom.text(empty, "给它添加文本内容");
 
-// 设置title
-dom.attribute(empty, "title", "设置title");
+// // 设置title
+// dom.attribute(empty, "title", "设置title");
 
-// 得到它的id
-// console.log(dom.attribute(empty, "id"));
+// // 得到它的id
+// // console.log(dom.attribute(empty, "id"));
 
-dom.addClass(empty, "whatEver");
+// dom.addClass(empty, "whatEver");
 
-// dom.removeClass(e1, "inner-block");
+// // dom.removeClass(e1, "inner-block");
 
-let fn = () => console.log("clicked!");
+// let fn = () => console.log("clicked!");
 
-dom.on(empty, "click", fn);
+// dom.on(empty, "click", fn);
 
-// 如果要remove掉一个函数，需要有函数名，因为如果分开写函数，虽然长得一样，但实际上是不同地址的函数对象
-dom.off(empty, "click", fn);
+// // 如果要remove掉一个函数，需要有函数名，因为如果分开写函数，虽然长得一样，但实际上是不同地址的函数对象
+// dom.off(empty, "click", fn);
 
-// 注意这里面不能有;
-dom.style(e1, "border", "5px solid green");
+// // 注意这里面不能有;
+// dom.style(e1, "border", "5px solid green");
 
-dom.style(e2, { border: "1px solid red", padding: "10px" });
+// dom.style(e2, { border: "1px solid red", padding: "10px" });
 
-dom.style(e3, "border:3px solid blue; width:10px");
+// dom.style(e3, "border:3px solid blue; width:10px");
+
+// // console.log(dom.find(".inner-block"));
+
+// // console.log(dom.find(".inner-block")[0]);
+
+// console.log(e1);
+
+// console.log(dom.siblings(e1));
+
+// console.log(dom.next(e1));
+
+// console.log(dom.previous(e2));
+
+// dom.each(dom.children(empty), (n) => dom.style(n, "width", "300px"));
+
+// dom.each(dom.children(empty), (n) => dom.style(n, "background", "lightblue"));

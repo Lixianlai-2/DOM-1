@@ -130,6 +130,11 @@ window.dom = {
     node.classList.remove(string);
   },
 
+  // 判断是否有class
+  hasClass(node, className) {
+    return node.classList.contains(className);
+  },
+
   // 添加事件监听
   on(node, eventName, fn) {
     node.addEventListener(eventName, fn);
@@ -143,4 +148,83 @@ window.dom = {
   // ------------------------
   // 下面是查
   // ------------------------
+
+  find(selector, scope) {
+    // 关键在于要return，因为我需要这个值
+
+    // 如果存在第二个scope，那么就用scope执行后面的代码，如果没有，就用document执行
+    return (scope || document).querySelectorAll(selector);
+
+    // return document.querySelector(name);
+    // return document.querySelectorAll(name)[0];
+  },
+
+  parent(node) {
+    return node.parentNode;
+  },
+
+  children(node) {
+    return node.children;
+  },
+
+  siblings(node) {
+    // 简单方法
+    // return Array.from(node.parentNode.children).filter((n) => n !== node);
+
+    // return node.parentNode.children
+    let allChildren = node.parentNode.children;
+
+    let siblingArr = [];
+    for (let i = 0; i < allChildren.length; i++) {
+      if (allChildren[i] !== node) {
+        siblingArr.push(allChildren[i]);
+      }
+    }
+    return siblingArr;
+  },
+
+  next(node) {
+    return node.nextElementSibling;
+
+    // 复杂的做法：
+    // let x = node.nextSibling
+    // while(x && x.nodeType === 3) {
+    //   x = x.nextSibling
+    // }
+
+    // return x
+  },
+
+  previous(node) {
+    return node.previousElementSibling;
+
+    //复杂的做法：
+    // let x = node.previousSibling
+    // while(x && x.nodeType === 3) {
+    //   x = x.previousSibling
+    // }
+
+    // return x
+  },
+
+  each(nodeList, fn) {
+    for (let i = 0; i < nodeList.length; i++) {
+      fn.call(null, nodeList[i]);
+    }
+  },
+
+  index(node) {
+    // 得到node的子节点
+    const list = dom.children(node.parentNode);
+
+    let i;
+
+    for (i = 0; 9 < list.length; i++) {
+      // 当子节点中有跟node相同的时，停止代码，返回i
+      if (list[i] === node) {
+        break;
+      }
+    }
+    return i;
+  },
 };
