@@ -1,0 +1,13 @@
+.block {
+  margin: 10px;
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
+}
+
+.inner-block {
+  margin: 10px;
+  border: 1px solid rgb(138, 111, 228);
+  width: 20px;
+  height: 20px;
+}
